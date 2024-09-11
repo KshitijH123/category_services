@@ -1,3 +1,4 @@
+import 'package:category_services/get_api_call_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,8 +11,13 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Home'),
       ),
       body: Center(
-        child: TextButton(
-          onPressed: () {},
+        child: ElevatedButton(
+          onPressed: () {
+             Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) =>  CategoryScreen()),
+            );
+          },
           child: const Text(
             'Show Data!',
             style: TextStyle(fontSize: 20),
