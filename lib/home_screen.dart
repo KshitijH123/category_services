@@ -6,13 +6,13 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(    
       appBar: AppBar(
         title: const Text('Home'),
       ),
       body: Center(
         child: ElevatedButton(
-          onPressed: () {
+           onPressed: () {
              Navigator.push(
               context,
               MaterialPageRoute(builder: (context) =>  CategoryScreen()),

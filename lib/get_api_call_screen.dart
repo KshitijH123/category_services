@@ -10,6 +10,7 @@ class CategoryScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Category List'),
+        backgroundColor: Colors.deepPurple,
       ),
       body: Obx(() {
         if (categoryController.isLoading.value) {
@@ -17,11 +18,45 @@ class CategoryScreen extends StatelessWidget {
         } else if (categoryController.categories.isEmpty) {
           return const Center(child: Text('No categories found.'));
         } else {
-          return ListView.builder(
+          return ListView.separated(
+            padding: const EdgeInsets.all(8.0),
             itemCount: categoryController.categories.length,
+            separatorBuilder: (context, index) => const Divider(),
             itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(categoryController.categories[index].name),
+              final category = categoryController.categories[index];
+              return Card(
+                elevation: 4.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: ListTile(
+                  contentPadding: const EdgeInsets.all(16.0),
+                  leading: Icon(
+                    Icons.category, // You can use different icons or images
+                    color: Colors.deepPurple,
+                    size: 40.0,
+                  ),
+                  title: Text(
+                    category.name,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0,
+                    ),
+                  ),
+                  subtitle: Text(
+                    'Description or additional info here',
+                    style: TextStyle(
+                      color: Colors.grey[600],
+                    ),
+                  ),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    color: Colors.deepPurple,
+                  ),
+                  onTap: () {
+                    // Handle category tap
+                  },
+                ),
               );
             },
           );
