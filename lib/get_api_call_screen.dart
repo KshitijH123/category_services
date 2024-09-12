@@ -32,8 +32,8 @@ class CategoryScreen extends StatelessWidget {
                 child: ListTile(
                   contentPadding: const EdgeInsets.all(16.0),
                   leading: Icon(
-                    Icons.category, // You can use different icons or images
-                    color: Colors.deepPurple,
+                    Icons.category,
+                    color: Colors.purple,
                     size: 40.0,
                   ),
                   title: Text(
@@ -54,7 +54,6 @@ class CategoryScreen extends StatelessWidget {
                     color: Colors.deepPurple,
                   ),
                   onTap: () {
-                    // Handle category tap
                   },
                 ),
               );
